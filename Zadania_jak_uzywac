@@ -1,0 +1,6 @@
+W każdym katalogu znajdują się zadania z danego tematu każde zadanie umieszczone jest w jednym pliku z jego treścia.
+Pod treścią zadania należy napisać swoje rozwiązanie.przykładowo plik może wyglądać tak:
+
+"""
+Napisz program który wypisze na ekranie twoje imie i nazwisko.
+"""
