@@ -11,3 +11,18 @@ Stworzyc gre w statki. dla uproszczenia bedziemy mieli tylko pojedyncze statki.
 - Dodaj mozliwosc poddania sie gracza.
 - Dodaj mozliwosc zapisania stanu gry do pliku.(pomysl nad formatem) aby latwo bylo go potem zaladowac.
 """
+
+class Ship:
+    def __init__(self):
+        self._size = 1
+        self.position_x = None
+        self.position_y = None
+
+    def trafiony(self):
+        self._size -=1
+        print("trafiony")
+        if self._size <1:
+            self.zatopiony()
+
+    def zatopiony(self):
+        print("zatopiony!")

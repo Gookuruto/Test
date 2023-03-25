@@ -2,6 +2,7 @@
 Koncepcja:
 1. Mamy pracownika pracownik ma
 """
+import datetime
 from typing import List
 
 
@@ -56,7 +57,20 @@ class Employee:
         self.salary_per_hour = 0
 
     def check_in(self):
-        pass
+        self.current_Day._currant_date = datetime.date.today()
+        self.current_Day._check_in_hour = datetime.datetime.now().time()
 
     def check_out(self):
-        pass
+        self.current_Day._check_out_hour = datetime.datetime.now().time()
+        self.work_card.save_current_day()
+
+
+class GeneralManager(Employee, WorkDay):
+    def __init__(self):
+        super().__init__()
+        WorkDay.__init__(self)
+
+    def check_in(self):
+        super().check_in()
+        print("Manager checked in.")
+
