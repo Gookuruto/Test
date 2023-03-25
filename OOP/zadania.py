@@ -81,7 +81,6 @@ class Deck:
 talia = Deck()
 while True:
     talia.shuffle()
-    print(talia.deal())
     if not talia.cards:
         kontynuawac = input("Czy kontynuowac(y/n): ")
         if kontynuawac == "y":
