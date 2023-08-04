@@ -1,15 +1,15 @@
 """
-- Napisz funkcje która przyjmie liczbę całkowitą n i zwróci liste z n pierwszymi elementami ciągu fibonacciego
+- Napisz funkcje_z która przyjmie liczbę całkowitą n i zwróci liste z n pierwszymi elementami ciągu fibonacciego
  def fib(n:int) -> List[int]:
     https://pl.wikipedia.org/wiki/Ci%C4%85g_Fibonacciego
-- napisz funkcje która zsumuje wszystkie elementy w liście.
+- napisz funkcje_z która zsumuje wszystkie elementy w liście.
     def sum_list(lista) -> float:
         return suma
-- Napisz funkcje która znajdzie największą z 3 liczb
+- Napisz funkcje_z która znajdzie największą z 3 liczb
     def max_of_three(x,y,z) -> int:
         return x lub y lub z
 
-- Pomyśł jakie inne funkcje moga być użyteczne?
+- Pomyśł jakie inne funkcje_z moga być użyteczne?
 
 """
 from typing import List

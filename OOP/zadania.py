@@ -78,7 +78,10 @@ class Deck:
     def __repr__(self):
         return "Cards remaining in deck: {}".format(len(self.cards))
 
+
 talia = Deck()
+talie_2 = Deck()
+print(talia is talie_2)
 while True:
     talia.shuffle()
     if not talia.cards:

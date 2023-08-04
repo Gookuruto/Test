@@ -85,6 +85,4 @@ def fib(n: int):
         a, b = b, a + b
         yield a
     yield b
-for i in fib(100):
-    print(i)
 
