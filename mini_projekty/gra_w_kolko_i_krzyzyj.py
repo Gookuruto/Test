@@ -1,60 +1,71 @@
-"""
-Napisz gre w kolko i krzyszyk. kroki:
-1. stworz funkcje(klase) odpowiedzialną za plansze czyli za jej rysowanie zgodnie z obecnym stanem gry.
-2. stworz funkcje ktora bedzie sprawdzać czy ktorys z graczy wygrał.
-3. napisz kod ktory pozwoli graczom wykonywac swoj ruch na zmiane (trzeba zabronic nadpisywania ruchów)
-4. Czy stworzony kod można jakos ulepszyć? zamknac w klasy jezeli chclielbysmy miec wiecej instancji naszej gry?
-"""
-import os
-from typing import List
+import random
+
+list_of_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+def wordchoice():
+    wordlist = ['drzewo', 'pies', 'wiosło', 'masło' ]
+    global the_word
+    the_word = random.choice(wordlist)   # losuje słowo
+    print(the_word)
+    word_lenght = len(the_word)          # określa długość ciągu znaków(wylosowanego słowa)
+    print(word_lenght)
+    global floor
+    floor = ''
+    for _ in range(word_lenght):         # tworzy podłoge z tylu znaków ile ma słowo
+        floor += '_'
+    print(floor)
+
+def player_input():
+        player_letter = input('Wpisz literkę: ')        # wczytuje literke od usera
+        if player_letter in list_of_letters:            # jeśli literka jest w alfabecie; usuwa literke z alfabetu/listy -
+            list_of_letters1 = list_of_letters.remove(player_letter)
+            return player_letter        # - i zwraca literke wpisana
+        else:
+            print('źle')
 
 
-def draw_board(values_list: List[str]):
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print(f"{values_list[7]}|{values_list[8]} |{values_list[9]} ")
-    print("------")
-    print(f"{values_list[4]}|{values_list[5]} |{values_list[6]} ")
-    print("------")
-    print(f"{values_list[1]}|{values_list[2]} |{values_list[3]} ")
+def in_word():
+    if player_input() in the_word:          # jeśli literka usera jest w haśle
+        print_updated_floor()               # wyświetl nową podłoge z literką w odpowiednim miejscu
+        print('tu jestem')                  # info dla mnie że kod tu doszedł
+    else: print('nie ma tej litery - spróbuj ponownie')
+
+def print_updated_floor():
+    times_appears = the_word.count(player_input())
+    letter_index = the_word.index(player_input())
+    upd_floor = floor.replace(floor[letter_index], player_input(), 1)
+    print(upd_floor)
+    print(times_appears)
+    print(letter_index)
+
+def final_guess():
+    print('jesli nie znasz wpisz N')
+    guess = input('Jeśli znasz hasło - zgaduj: ')
+    counter = 5
+    if guess == "N":
+        return None
+
+    if guess == the_word:
+        print('Wygrałeś')
+        return True
+    elif guess != the_word:
+        counter -= 1
+        print('złe hasło')
+        print(f'pozostało {counter} szans')
+        return None
+    if counter < 1:
+        print('Przegrałeś')
+        return True
 
 
-def win_rule(values_list: List[str]) -> str:
-    if values_list[1] == values_list[2] == values_list[3] and values_list[1] != " ":
-        return values_list[1]
-    elif values_list[4] == values_list[5] == values_list[6] and values_list[4] != " ":
-        return values_list[4]
-    elif values_list[7] == values_list[8] == values_list[9] and values_list[7] != " ":
-        return values_list[7]
-    else:
-        return "undefined"
+def launch_game():
+    wordchoice()
+    while final_guess() == None:
+        try:
+            in_word()
+        except:
+            print('coś poszło nie tak')
+        finally:
+            final_guess()
 
-
-def player_move(player_icon, values_list) -> List[str]:
-    field_number = int(input("Podaj pole 1-9: "))
-    while values_list[field_number] != " ":
-        field_number = int(input("Podaj pole 1-9: "))
-    values_list[field_number] = player_icon
-    return values_list
-
-
-def change_icon(icon):
-    if icon == 'o':
-        return 'x'
-    else:
-        return 'o'
-
-
-def game():
-    playing_filed = [" "] * 10
-    draw_board(playing_filed)
-    player_icon = 'o'
-    while True:
-        player_move(player_icon, playing_filed)
-        draw_board(playing_filed)
-        player_icon = change_icon(player_icon)
-        if win_rule(playing_filed) != "undefined":
-            print(f"{win_rule(playing_filed)} has won")
-            break
-
-
-game()
+launch_game()
