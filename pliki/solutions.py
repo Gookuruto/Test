@@ -28,7 +28,7 @@ def max_length(words):
     return max_value
 
 
-print(longest_word('test.txt'))
+print(longest_word('../sterowanie_programem/test.txt'))
 
 # 6
 import string, os
