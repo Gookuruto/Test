@@ -95,3 +95,7 @@ ans_e = wrd[1:6:2]
 print(ans_e)
 ans_f = wrd[::-1]
 print(ans_f)
+
+text = "Hello, World!"
+reversed_text = ''.join(reversed(text))
+print(reversed_text)
