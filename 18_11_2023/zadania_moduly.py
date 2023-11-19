@@ -3,6 +3,7 @@ import random
 
 # 85
 import timeit
+from datetime import datetime, timedelta
 
 print("zadanie 85")
 print("a")
@@ -42,11 +43,28 @@ words = ['red', 'black', 'green', 'blue']
 print(numbers)
 print(words)
 
-#magia
+# magia
 random.shuffle(numbers)
 random.shuffle(words)
 print(numbers)
 print(words)
 # 87
+numbers = [random.randint(0, 99999) for number in range(100)]
+random_numbers = random.sample(numbers, 10)
+print(random_numbers)
 # 88
+print("Zadanie 88")
+date_string = "Feb 25 2020 4:20PM"
+format_str = "%b %d %Y %I:%M%p"
+datetime_object = datetime.strptime(date_string, format_str)
+print(datetime_object.strftime(format_str).upper())
+print(type(datetime_object))
+print(datetime_object)
 # 89
+given_date = datetime(2020, 2, 25)
+print("Given date:")
+print(given_date)
+days_to_substract = 7
+result_date = given_date - timedelta(days=days_to_substract)
+print("New Date")
+print(result_date)

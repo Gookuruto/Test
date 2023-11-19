@@ -80,11 +80,10 @@ def f_1(collection: List[Any]):
 
 def f_2(collection: List[Any]):
     #zmienia zroblowa liste
-    collection_copy = copy.deepcopy(collection)
-    collection_copy.reverse()
-    return collection_copy
+    collection.reverse()
+    return collection
 
-lst2 = f_1(lst)
+lst2 = f_2(lst)
 print(lst)
 print(lst2)
 lst2.append("Super")
@@ -96,9 +95,9 @@ print(lst is lst2)
 print("#Zadanie 83")
 
 
-def f_1():
-    name = input("Podaj swoje imie: ")
-    print(f"Hello {name}")
+# def f_1():
+#     name = input("Podaj swoje imie: ")
+#     print(f"Hello {name}")
 
 f_1()
 
