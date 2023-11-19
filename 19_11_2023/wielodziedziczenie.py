@@ -32,6 +32,9 @@ class SpiderMan(Spider, Man):
     def spider_sense(self):
         print("Sensing danger around.")
 
+    def shoot_web(self):
+        print("Shooting web from hands")
+
 
 #Polimorfizm
 

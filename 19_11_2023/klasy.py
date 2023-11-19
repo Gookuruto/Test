@@ -33,7 +33,7 @@ class Animal:
 
     @age.setter
     def age(self, age):
-        if age > 0:
+        if age in ["pik", "kier", "karo", "trefl"]:
             self._age = age
         else:
             print("Wstawiasz głupoty!")
@@ -60,6 +60,5 @@ pudelko_2.age = -20
 
 kotek = Cats()
 kotek.print_details()
-
 
 pudelko.print_details()

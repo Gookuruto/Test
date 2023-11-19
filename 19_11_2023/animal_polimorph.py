@@ -35,14 +35,3 @@ lista_zwirzow: List[Animal] = [Duck(), Cat(), Animal(), Dog(), Duck(), Duck()]
 for animal in lista_zwirzow:
     animal.sound()
     print(isinstance(animal, Cat))
-
-
-autobus = Bus()
-class Vehicle:
-    def seating_capacity(self,capacity):
-        return capacity
-class Bus(Vehicle):
-    def seating_capacity(self,magia(...)):
-        return super().(...)
-
-print(autobus.seating_capacity())
